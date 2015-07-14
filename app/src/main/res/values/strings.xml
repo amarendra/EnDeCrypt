@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">EnDeCrypt</string>
+    <string name="title_activity_main">Encryption Decryption</string>
+
+    <string name="choose_label_text">Choose </string>
+    <string name="action_settings">Settings</string>
+    <string name="decrypt_text">Decrypt</string>
+    <string name="encrypt_text">Encrypt</string>
+    <string name="output_label_text">Output will be shown here</string>
+</resources>
