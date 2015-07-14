@@ -13,6 +13,13 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+
 public class MainActivity extends Activity{
     private static final String TAG = "MainActivity";
 
@@ -104,5 +111,20 @@ public class MainActivity extends Activity{
         mKey = editTextKey.getText().toString();
 
         Log.d(TAG, "mSecret: " + mSecret + "\nmKey: " + mKey);
+    }
+
+    private void callCrypto() throws NoSuchAlgorithmException, IllegalBlockSizeException,
+            InvalidKeyException, BadPaddingException, NoSuchPaddingException {
+        SimpleCrypto crypto = new SimpleCrypto(mSecret, mKey);
+        if(isDecrypt) {
+            mOutput = getStringFromBytes(crypto.decrypt());
+        } else {
+            mOutput = getStringFromBytes(crypto.encrypt());
+        }
+    }
+
+    private String getStringFromBytes(byte[] input) {
+        String output = input.toString(); //todo: not that simple
+        return output;
     }
 }
